@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxbjbeqrtwefe"]
+
+[ext_resource type="Texture2D" uid="uid://dga5ilfnc0cnd" path="res://assets/whitePuff02.png" id="1_qvrok"]
+
+[sub_resource type="Gradient" id="Gradient_qtc3r"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j4w13"]
+gradient = SubResource("Gradient_qtc3r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vrlbn"]
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3(2.08165e-12, 1, 2.08165e-12)
+spread = 0.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+linear_accel_min = 1.0
+linear_accel_max = 2.0
+radial_accel_max = 1.0
+scale_min = 0.5
+color_ramp = SubResource("GradientTexture1D_j4w13")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yuqth"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.203922)
+albedo_texture = ExtResource("1_qvrok")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_08gmh"]
+material = SubResource("StandardMaterial3D_yuqth")
+
+[node name="Smoke" type="GPUParticles3D"]
+amount = 50
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_vrlbn")
+draw_pass_1 = SubResource("QuadMesh_08gmh")

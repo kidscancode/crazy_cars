@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c368gbuoig7i7"]
+
+[ext_resource type="Script" path="res://boost.gd" id="1_be4tr"]
+[ext_resource type="FontFile" uid="uid://cjvuljwbydxhg" path="res://assets/icons/Font Awesome 6 Free-Solid-900.otf" id="1_wbgx6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hunnf"]
+size = Vector3(4.90918, 5.17969, 0.491211)
+
+[node name="Boost" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_be4tr")
+
+[node name="Icon" type="Label3D" parent="."]
+pixel_size = 0.07
+modulate = Color(1, 0.545098, 0.243137, 1)
+outline_modulate = Color(0.870588, 0.176471, 0.0235294, 1)
+text = ""
+font = ExtResource("1_wbgx6")
+font_size = 80
+outline_size = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hunnf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,162 @@
+[gd_scene load_steps=20 format=3 uid="uid://dov4h4ifh60v7"]
+
+[ext_resource type="Script" path="res://test_scene.gd" id="1_djvae"]
+[ext_resource type="Texture2D" uid="uid://0wof2ikeolop" path="res://assets/texture_01.png" id="1_tbqoc"]
+[ext_resource type="PackedScene" uid="uid://cvh0fwg53wpus" path="res://car.tscn" id="3_jaglt"]
+[ext_resource type="Script" path="res://FixedCamera.gd" id="3_kobj1"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="3_opq1w"]
+[ext_resource type="PackedScene" uid="uid://cvtsgj2njy84h" path="res://fan.tscn" id="7_k4ooo"]
+[ext_resource type="PackedScene" uid="uid://c368gbuoig7i7" path="res://boost.tscn" id="8_du77t"]
+[ext_resource type="PackedScene" uid="uid://ctuim7nbx1ofk" path="res://spike_block.tscn" id="9_vh63b"]
+[ext_resource type="PackedScene" uid="uid://c0ixrjaa3sdxn" path="res://assets/tracks/track1.glb" id="10_77wfs"]
+[ext_resource type="PackedScene" uid="uid://dt4lnhrj6iqgd" path="res://checkpoint.tscn" id="10_t1htx"]
+[ext_resource type="PackedScene" uid="uid://cse62jrycfedv" path="res://mine.tscn" id="11_6sofp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_pcewp"]
+sky_material = SubResource("ProceduralSkyMaterial_74a4f")
+
+[sub_resource type="Environment" id="Environment_pk4ow"]
+background_mode = 2
+sky = SubResource("Sky_pcewp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cv6gg"]
+albedo_texture = ExtResource("1_tbqoc")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ah1i"]
+material = SubResource("StandardMaterial3D_cv6gg")
+size = Vector2(150, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvbi4"]
+size = Vector3(150, 0.5, 150)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2xpj"]
+friction = 2.0
+bounce = 0.1
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyj07"]
+font_size = 48
+
+[node name="TestScene" type="Node3D"]
+script = ExtResource("1_djvae")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pk4ow")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4486, -1.15035, 0)
+mesh = SubResource("PlaneMesh_8ah1i")
+
+[node name="Ground" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.25, 2.08165e-12)
+shape = SubResource("BoxShape3D_cvbi4")
+
+[node name="Car" parent="." instance=ExtResource("3_jaglt")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -0.0216919, 0.142595, 8.77901)
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_g2xpj")
+linear_damp = 1.0
+angular_damp = 12.0
+acceleration = 80.0
+turn_speed = 5.0
+turn_stop_limit = 4.0
+
+[node name="Debug" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Debug"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_jyj07")
+
+[node name="Label2" type="Label" parent="Debug"]
+offset_left = 1.0
+offset_top = 82.0
+offset_right = 41.0
+offset_bottom = 149.0
+label_settings = SubResource("LabelSettings_jyj07")
+
+[node name="Fan" parent="." instance=ExtResource("7_k4ooo")]
+transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.48787e-16, -8.74228e-08, -3.48787e-16, -1, 35.938, 3.70499, 46.3794)
+
+[node name="Boost" parent="." instance=ExtResource("8_du77t")]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45.0974, 15.11, -49.6044)
+
+[node name="SpikeBlock" parent="." instance=ExtResource("9_vh63b")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 30.0749, 1.38985, 54.9795)
+
+[node name="SpikeBlock2" parent="." instance=ExtResource("9_vh63b")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 39.9679, 1.38985, 54.9795)
+
+[node name="Checkpoint" parent="." instance=ExtResource("10_t1htx")]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 32.1225, 2.62038, -32.5925)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("10_t1htx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00135112, 2.63427, 2.78589)
+num = 0
+
+[node name="track1" parent="." instance=ExtResource("10_77wfs")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+msaa_3d = 1
+screen_space_aa = 1
+size = Vector2i(2, 2)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="FixedCamera" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, -6.85689e-16, 9.02727e-17, 9.02727e-17, 0.258819, 0.965926, -6.85689e-16, -0.965926, 0.258819, 75, 27.288, 24.656)
+current = true
+script = ExtResource("3_kobj1")
+offset = Vector3(2.08165e-12, 20, 12)
+target = NodePath("../../../../Car")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+msaa_3d = 1
+screen_space_aa = 1
+size = Vector2i(2, 2)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="ChaseCamera" type="Camera3D" parent="HBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target")]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, -0.433693, 3.89451, 5.54128)
+current = true
+script = ExtResource("3_opq1w")
+lerp_speed = 2.0
+offset = Vector3(2.08165e-12, 11, 9)
+target = NodePath("../../../../Car/CarMesh")
+
+[node name="Mine" parent="." instance=ExtResource("11_6sofp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31144, 0, -14.7689)
+
+[editable path="Car"]

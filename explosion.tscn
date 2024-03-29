@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdm1o26gdxjcs"]
+
+[ext_resource type="Material" uid="uid://dkfpp1xmsdiy8" path="res://explosion_particle.tres" id="1_uswlc"]
+
+[sub_resource type="Gradient" id="Gradient_qg7pg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_frro5"]
+gradient = SubResource("Gradient_qg7pg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hwugf"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(2.08165e-12, 1, 2.08165e-12)
+damping_min = 1.0
+damping_max = 1.0
+color_ramp = SubResource("GradientTexture1D_frro5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ma8ob"]
+material = ExtResource("1_uswlc")
+radius = 1.0
+height = 2.0
+
+[node name="Explosion" type="GPUParticles3D"]
+emitting = false
+amount = 32
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_hwugf")
+draw_pass_1 = SubResource("SphereMesh_ma8ob")
