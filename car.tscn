@@ -27,6 +27,7 @@ height = 2.0
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_dtpcx")
 gravity_scale = 3.0
+freeze_mode = 1
 angular_damp = 10.0
 script = ExtResource("1_cd5ts")
 

@@ -13,6 +13,7 @@ var turn_input = 0
 var facing
 var last_checkpoint = null
 var teleport_position = null
+var block_input = false
 
 @onready var car_mesh = $CarMesh
 @onready var body = $CarMesh/suv
@@ -37,12 +38,18 @@ func _physics_process(delta):
 
 func _integrate_forces(state):
 	if teleport_position:
-		state.transform = teleport_position.transform
-		car_mesh.global_transform = teleport_position.transform
-		linear_velocity = Vector3.ZERO
+		state.transform = teleport_position.global_transform
+		car_mesh.global_transform = teleport_position.global_transform
+		print("teleporting to %v" % teleport_position.global_position)
+		print("%v" % global_position)
+		state.linear_velocity = Vector3.ZERO
 		teleport_position = null
 	
 func get_input():
+	#if block_input:
+		#speed_input = 0
+		#turn_input = 0
+		#return
 	speed_input = Input.get_axis("brake", "accelerate") * acceleration
 	turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)
 	
@@ -76,8 +83,11 @@ func align_with_y(xform, new_y):
 func explode():
 	freeze = true
 	car_mesh.hide()
-	explosion.emitting = true
+	explosion.activate()
+	#block_input = true
 	await get_tree().create_timer(2.0).timeout
 	teleport_position = last_checkpoint
+	print("exploded - teleporting to " + last_checkpoint.name)
 	car_mesh.show()
+	#block_input = false
 	freeze = false

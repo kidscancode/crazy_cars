@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvtsgj2njy84h"]
+[gd_scene load_steps=7 format=3 uid="uid://cvtsgj2njy84h"]
 
 [ext_resource type="Script" path="res://fan.gd" id="1_andpj"]
 [ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="1_w222p"]
+[ext_resource type="PackedScene" uid="uid://bew1vkisshs7w" path="res://assets/objects/fan.glb" id="3_e5iyj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b1uln"]
 height = 12.0
@@ -28,9 +29,11 @@ gravity = 20.0
 script = ExtResource("1_andpj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -6.46109)
 shape = SubResource("CylinderShape3D_b1uln")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -6.46109)
 mesh = SubResource("CylinderMesh_gnaib")
+
+[node name="fan" parent="." instance=ExtResource("3_e5iyj")]

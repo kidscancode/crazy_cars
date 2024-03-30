@@ -9,6 +9,7 @@ radius = 0.301326
 
 [node name="Mine" type="Area3D"]
 collision_mask = 2
+monitoring = false
 script = ExtResource("1_2uxuo")
 
 [node name="button_teamRed_gltf" parent="." instance=ExtResource("1_6dy11")]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cuj61bcc7rpes"
+path="res://.godot/imported/laser_beam_pulse.obj-a037c1542c1ede74ba0a83292aac2054.mesh"
+
+[deps]
+
+files=["res://.godot/imported/laser_beam_pulse.obj-a037c1542c1ede74ba0a83292aac2054.mesh"]
+
+source_file="res://laser/laser_beam_pulse.obj"
+dest_files=["res://.godot/imported/laser_beam_pulse.obj-a037c1542c1ede74ba0a83292aac2054.mesh", "res://.godot/imported/laser_beam_pulse.obj-a037c1542c1ede74ba0a83292aac2054.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

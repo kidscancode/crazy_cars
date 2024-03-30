@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4pbuku5qcm7t"]
+
+[ext_resource type="Script" path="res://pickup.gd" id="1_5s6q1"]
+[ext_resource type="ArrayMesh" uid="uid://biqoeontpmxwf" path="res://assets/objects/Prop_Block_Question_Mark.obj" id="1_q2ksw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4l1h"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.0313726)
+emission_enabled = true
+emission = Color(1, 0.843137, 0, 1)
+emission_energy_multiplier = 4.86
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fr7bk"]
+
+[node name="Pickup" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_5s6q1")
+
+[node name="PropBlockQuestionMark" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
+material_overlay = SubResource("StandardMaterial3D_n4l1h")
+mesh = ExtResource("1_q2ksw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+shape = SubResource("BoxShape3D_fr7bk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
