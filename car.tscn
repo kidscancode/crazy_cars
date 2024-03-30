@@ -38,19 +38,19 @@ shape = SubResource("SphereShape3D_ywja5")
 visible = false
 mesh = SubResource("SphereMesh_00jmq")
 
-[node name="CarMesh" parent="." instance=ExtResource("2_wv6cm")]
+[node name="CarMesh" type="Node3D" parent="."]
+
+[node name="suv" parent="CarMesh" instance=ExtResource("2_wv6cm")]
 
 [node name="GroundRay" type="RayCast3D" parent="CarMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
 
 [node name="SmokeL" parent="CarMesh" instance=ExtResource("4_8iv1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590331, 0.289601, 0.581071)
 emitting = false
 
 [node name="SmokeR" parent="CarMesh" instance=ExtResource("4_8iv1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59, 0.29, 0.581)
 emitting = false
 
 [node name="Explosion" parent="." instance=ExtResource("5_vekap")]
 
-[editable path="CarMesh"]
+[editable path="CarMesh/suv"]

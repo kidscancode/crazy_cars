@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/suv.glb-1c0dfdd0917f223aa33b6bb65d48a330.scn"
 [params]
 
 nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_name="suv"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true

@@ -1,4 +1,4 @@
-# body.set_surface_override_material() 0 (shell) 2 (body)
+# body_mesh.set_surface_override_material() 0 (shell) 2 (body)
 extends RigidBody3D
 
 var sphere_offset = Vector3.DOWN
@@ -14,14 +14,15 @@ var facing
 var last_checkpoint = null
 var teleport_position = null
 var block_input = false
+var held_powerup = null
 
 @onready var car_mesh = $CarMesh
-@onready var body = $CarMesh/suv
-@onready var body_mesh = $CarMesh/suv/body
+@onready var body = $CarMesh/suv/suv
+@onready var body_mesh = $CarMesh/suv/suv/body
 @onready var ground_ray = $CarMesh/GroundRay
 
-@onready var right_wheel = $CarMesh/suv/wheel_frontRight
-@onready var left_wheel = $CarMesh/suv/wheel_frontLeft
+@onready var right_wheel = $CarMesh/suv/suv/wheel_frontRight
+@onready var left_wheel = $CarMesh/suv/suv/wheel_frontLeft
 @onready var explosion = $Explosion
 
 func _ready():

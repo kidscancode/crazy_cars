@@ -92,30 +92,59 @@ offset_right = 41.0
 offset_bottom = 149.0
 label_settings = SubResource("LabelSettings_jyj07")
 
-[node name="Fan" parent="." instance=ExtResource("7_k4ooo")]
-transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.48787e-16, -8.74228e-08, -3.48787e-16, -1, 35.938, 3.70499, 40.2452)
+[node name="track1" parent="." instance=ExtResource("10_77wfs")]
 
-[node name="Boost" parent="." instance=ExtResource("8_du77t")]
-transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45.0974, 15.11, -49.6044)
+[node name="Mine" parent="track1" instance=ExtResource("11_6sofp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31144, 0, -14.7689)
 
-[node name="SpikeBlock" parent="." instance=ExtResource("9_vh63b")]
+[node name="Gate" parent="track1" node_paths=PackedStringArray("target") instance=ExtResource("12_b1rj3")]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 129.25, 2.11188e-16, -85.2434)
+target = NodePath("../Gate2")
+
+[node name="Gate2" parent="track1" instance=ExtResource("12_b1rj3")]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 127.755, 0, -134.764)
+
+[node name="FlameThrower" parent="track1" instance=ExtResource("13_4g2cd")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 79.0046, 0.968485, -92.6158)
+rotate_speed = -1.5
+off_time = 0
+
+[node name="Laser" parent="track1" instance=ExtResource("14_ft103")]
+transform = Transform3D(0.0151838, 0, -0.999885, 0, 1, 0, 0.999885, 0, 0.0151838, 5.61833, 1.22528, -8.27608)
+fire_rate = 4.0
+
+[node name="Swiper" parent="track1" instance=ExtResource("15_e0jc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8507, 0, -32.7883)
+speed = 0.5
+
+[node name="Swiper2" parent="track1" instance=ExtResource("15_e0jc3")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 51.1477, 0, -32.7883)
+speed = 0.5
+
+[node name="Pickup" parent="track1" instance=ExtResource("16_fw37q")]
+
+[node name="SpikeBlock" parent="track1" instance=ExtResource("9_vh63b")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 30.0749, 1.38985, 54.9795)
 
-[node name="SpikeBlock2" parent="." instance=ExtResource("9_vh63b")]
+[node name="SpikeBlock2" parent="track1" instance=ExtResource("9_vh63b")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 39.9679, 1.38985, 54.9795)
 
-[node name="Checkpoint" parent="." instance=ExtResource("10_t1htx")]
+[node name="Checkpoint" parent="track1" instance=ExtResource("10_t1htx")]
 transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 32.1225, 2.62038, -32.5925)
 
-[node name="Checkpoint3" parent="." instance=ExtResource("10_t1htx")]
+[node name="Checkpoint3" parent="track1" instance=ExtResource("10_t1htx")]
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 139.956, 2.62038, -82.6055)
 num = 2
 
-[node name="Checkpoint2" parent="." instance=ExtResource("10_t1htx")]
+[node name="Checkpoint2" parent="track1" instance=ExtResource("10_t1htx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00135112, 2.63427, 2.78589)
 num = 0
 
-[node name="track1" parent="." instance=ExtResource("10_77wfs")]
+[node name="Fan" parent="track1" instance=ExtResource("7_k4ooo")]
+transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.48787e-16, -8.74228e-08, -3.48787e-16, -1, 35.938, 3.70499, 40.2452)
+
+[node name="Boost" parent="track1" instance=ExtResource("8_du77t")]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45.0974, 15.11, -49.6044)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15
@@ -133,7 +162,7 @@ stretch = true
 handle_input_locally = false
 msaa_3d = 1
 screen_space_aa = 1
-size = Vector2i(958, 1080)
+size = Vector2i(2, 2)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -153,7 +182,7 @@ stretch = true
 handle_input_locally = false
 msaa_3d = 1
 screen_space_aa = 1
-size = Vector2i(958, 1080)
+size = Vector2i(2, 2)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -165,30 +194,5 @@ lerp_speed = 2.0
 offset = Vector3(2.08165e-12, 11, 9)
 target = NodePath("../../../../Car/CarMesh")
 
-[node name="Mine" parent="." instance=ExtResource("11_6sofp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31144, 0, -14.7689)
-
-[node name="Gate" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_b1rj3")]
-transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 129.25, 2.11188e-16, -85.2434)
-target = NodePath("../Gate2")
-
-[node name="Gate2" parent="." instance=ExtResource("12_b1rj3")]
-transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 127.755, 0, -134.764)
-
-[node name="FlameThrower" parent="." instance=ExtResource("13_4g2cd")]
-transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 79.0046, 0.968485, -92.6158)
-rotate_speed = -1.5
-off_time = 0
-
-[node name="Laser" parent="." instance=ExtResource("14_ft103")]
-transform = Transform3D(0.0151838, 0, -0.999885, 0, 1, 0, 0.999885, 0, 0.0151838, 5.61833, 1.22528, -8.27608)
-fire_rate = 4.0
-
-[node name="Swiper" parent="." instance=ExtResource("15_e0jc3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6315, 0, -32.7883)
-speed = 0.5
-
-[node name="Pickup" parent="." instance=ExtResource("16_fw37q")]
-
 [editable path="Car"]
-[editable path="Car/CarMesh"]
+[editable path="Car/CarMesh/suv"]
