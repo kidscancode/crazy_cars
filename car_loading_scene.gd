@@ -14,9 +14,12 @@ func choose_car(num):
 	model.get_child(current_car).hide()
 	model.get_child(num).show()
 	current_car = num
-	
-func set_color(num):
-	current_color = wrapi(num, 0, Globals.car_colors.size()-1)
 	var body = model.get_child(current_car).get_child(0).get_child(0)
 	#body.set_surface_override_material(0, Globals.car_colors[num])
-	body.set_surface_override_material(2, Globals.car_colors[num])
+	body.set_surface_override_material(2, Globals.car_colors[current_color])
+	
+func set_color(num):
+	current_color = wrapi(num, 0, Globals.car_colors.size())
+	var body = model.get_child(current_car).get_child(0).get_child(0)
+	#body.set_surface_override_material(0, Globals.car_colors[num])
+	body.set_surface_override_material(2, Globals.car_colors[current_color])

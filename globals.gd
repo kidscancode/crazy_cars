@@ -22,20 +22,20 @@ var car_models = [
 
 var player_options = [
 	{
-		"model": car_models[0],
-		"color": car_colors[1]
+		"model": 0,
+		"color": 1
 	},
 	{
-		"model": car_models[1],
-		"color": car_colors[2]
+		"model": 1,
+		"color": 2
 	},
 	{
-		"model": car_models[2],
-		"color": car_colors[3]
+		"model": 2,
+		"color": 3
 	},
 	{
-		"model": car_models[3],
-		"color": car_colors[4]
+		"model": 3,
+		"color": 4
 	},
 ]
 
