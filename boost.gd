@@ -4,5 +4,5 @@ extends Area3D
 
 func _on_body_entered(body):
 	print("boosting")
-	#body.apply_central_impulse(transform.basis.y * power)
-	body.apply_central_impulse(-body.car_mesh.transform.basis.z * power)
+	body.apply_central_impulse(transform.basis.y * power)
+	#body.apply_central_impulse(-body.car_mesh.transform.basis.z * power)

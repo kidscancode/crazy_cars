@@ -29,6 +29,7 @@ func spawn_cars():
 		car.setup(player)
 		var vp = vp_scene.instantiate()
 		$GridContainer.add_child(vp)
+		vp.target = car
 		vp.chase_camera.target = car.car_mesh
 		car.position = spawn_points.get_child(player).global_position
 		

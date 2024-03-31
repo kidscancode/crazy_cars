@@ -108,14 +108,16 @@ func align_with_y(xform, new_y):
 	return xform.orthonormalized()
 	
 func explode():
-	freeze = true
+	$Explosion.position = position
+	linear_velocity = Vector3.ZERO
+	block_input = true
+	#freeze = true
 	car_mesh.hide()
 	explosion.activate()
 	Input.start_joy_vibration(player_num, 1.0, 1.0, 0.5)
-	#block_input = true
 	await get_tree().create_timer(2.0).timeout
 	teleport_position = last_checkpoint
 	print("exploded - teleporting to " + last_checkpoint.name)
 	car_mesh.show()
-	#block_input = false
-	freeze = false
+	block_input = false
+	#freeze = false

@@ -23,7 +23,7 @@ var car_models = [
 var player_options = [
 	{
 		"model": 2,
-		"color": 1
+		"color": 3
 	},
 	{
 		"model": 1,

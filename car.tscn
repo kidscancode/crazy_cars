@@ -28,7 +28,6 @@ collision_layer = 2
 mass = 1.5
 physics_material_override = SubResource("PhysicsMaterial_dtpcx")
 gravity_scale = 3.0
-freeze_mode = 1
 angular_damp = 10.0
 script = ExtResource("1_cd5ts")
 acceleration = 80.0
@@ -54,3 +53,4 @@ emitting = false
 emitting = false
 
 [node name="Explosion" parent="." instance=ExtResource("5_vekap")]
+top_level = true

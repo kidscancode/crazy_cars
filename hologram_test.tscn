@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://3dufipekg2ig"]
+
+[ext_resource type="PackedScene" uid="uid://by5e3l4per3bn" path="res://assets/GLTF format/sedan.glb" id="1_xfq7r"]
+[ext_resource type="Shader" path="res://hologram.gdshader" id="2_tma1d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l5nfl"]
+render_priority = 0
+shader = ExtResource("2_tma1d")
+shader_parameter/lines1 = 162.0
+shader_parameter/lines2 = 48.0
+shader_parameter/color = Color(0.215686, 0.619608, 1, 1)
+shader_parameter/_emission = 7.399
+shader_parameter/_fresnel = 1.574
+
+[node name="hologram_test" type="Node3D"]
+
+[node name="sedan" parent="." instance=ExtResource("1_xfq7r")]
+
+[node name="body" parent="sedan/sedan" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_l5nfl")
+surface_material_override/1 = SubResource("ShaderMaterial_l5nfl")
+surface_material_override/2 = SubResource("ShaderMaterial_l5nfl")
+surface_material_override/5 = SubResource("ShaderMaterial_l5nfl")
+
+[editable path="sedan"]
