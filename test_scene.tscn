@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dov4h4ifh60v7"]
+[gd_scene load_steps=24 format=3 uid="uid://dov4h4ifh60v7"]
 
 [ext_resource type="Script" path="res://test_scene.gd" id="1_djvae"]
 [ext_resource type="Texture2D" uid="uid://0wof2ikeolop" path="res://assets/texture_01.png" id="1_tbqoc"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://djgiua08q6i7" path="res://laser/laser.tscn" id="14_ft103"]
 [ext_resource type="PackedScene" uid="uid://cykr4fd0joeh2" path="res://swiper.tscn" id="15_e0jc3"]
 [ext_resource type="PackedScene" uid="uid://b4pbuku5qcm7t" path="res://pickup.tscn" id="16_fw37q"]
+[ext_resource type="PackedScene" uid="uid://dpelgsr4toyj5" path="res://spikes.tscn" id="17_kgiei"]
 
 [sub_resource type="Environment" id="Environment_pk4ow"]
 background_energy_multiplier = 0.5
@@ -199,5 +200,8 @@ script = ExtResource("3_opq1w")
 lerp_speed = 2.0
 offset = Vector3(2.08165e-12, 11, 9)
 target = NodePath("../../../../Car/CarMesh")
+
+[node name="Spikes" parent="." instance=ExtResource("17_kgiei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59174, -4.76837e-07, -4.50553)
 
 [editable path="Car"]

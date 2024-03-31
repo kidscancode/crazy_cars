@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://duumhl6n0or8c"]
+[gd_scene load_steps=14 format=3 uid="uid://duumhl6n0or8c"]
 
 [ext_resource type="Script" path="res://track_01.gd" id="1_73qdv"]
 [ext_resource type="PackedScene" uid="uid://c0ixrjaa3sdxn" path="res://assets/tracks/track1.glb" id="1_skn7n"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cse62jrycfedv" path="res://mine.tscn" id="8_sguj2"]
 [ext_resource type="PackedScene" uid="uid://djl0p7cgk73ia" path="res://flamethrower/flame_thrower.tscn" id="10_6spbo"]
 [ext_resource type="AudioStream" uid="uid://bb1wyaouosyns" path="res://assets/audio/m64_race.mp3" id="10_onv77"]
+[ext_resource type="PackedScene" uid="uid://dpelgsr4toyj5" path="res://spikes.tscn" id="12_mxkco"]
 
 [sub_resource type="Environment" id="Environment_b7msr"]
 background_energy_multiplier = 0.5
@@ -106,3 +107,15 @@ size_flags_vertical = 3
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_onv77")
 volume_db = -12.0
+
+[node name="Spikes2" parent="." instance=ExtResource("12_mxkco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.741, 0, -36.5106)
+
+[node name="Spikes3" parent="." instance=ExtResource("12_mxkco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.741, 0, -34.0106)
+
+[node name="Spikes4" parent="." instance=ExtResource("12_mxkco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.741, 0, -31.5106)
+
+[node name="Spikes5" parent="." instance=ExtResource("12_mxkco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.741, 0, -28.8963)
