@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gexgosj7ejv7"]
+[gd_scene load_steps=14 format=3 uid="uid://gexgosj7ejv7"]
 
 [ext_resource type="Script" path="res://car_loading_scene.gd" id="1_a1sqf"]
 [ext_resource type="PackedScene" uid="uid://b7to78d8cuybh" path="res://assets/GLTF format/suv.glb" id="2_3xmka"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://by5e3l4per3bn" path="res://assets/GLTF format/sedan.glb" id="5_d3rdi"]
 [ext_resource type="PackedScene" uid="uid://bea4vpeoqhoi8" path="res://assets/GLTF format/sedanSports.glb" id="6_f4tt1"]
 [ext_resource type="PackedScene" uid="uid://ca1cyjt5p3br2" path="res://assets/GLTF format/taxi.glb" id="8_matm1"]
+[ext_resource type="Texture2D" uid="uid://pxpipolidxt6" path="res://icon.svg" id="9_bgxeq"]
 [ext_resource type="PackedScene" uid="uid://dry87p8ss5wf3" path="res://assets/GLTF format/truck.glb" id="9_sfr3l"]
 [ext_resource type="PackedScene" uid="uid://4mt43upmt1ul" path="res://assets/GLTF format/van.glb" id="10_e6w3w"]
 
 [sub_resource type="Environment" id="Environment_yhy0a"]
 background_mode = 3
+background_canvas_max_layer = -1
 ambient_light_source = 3
 ambient_light_color = Color(0.996078, 0.996078, 0.996078, 1)
 tonemap_mode = 2
@@ -33,7 +35,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fxpou"]
 resource_name = "spin"
-length = 4.0
+length = 6.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -42,7 +44,7 @@ tracks/0/path = NodePath("Model:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
+"times": PackedFloat32Array(0, 6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(3.48787e-16, 6.28319, 3.48787e-16)]
@@ -66,6 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 0.989664, 0.143406, 0, -0.143406, 0.989664, 
 [node name="Model" type="Node3D" parent="."]
 
 [node name="hatchbackSports" parent="Model" instance=ExtResource("3_cmg8w")]
+visible = false
 
 [node name="sedan" parent="Model" instance=ExtResource("5_d3rdi")]
 visible = false
@@ -95,3 +98,16 @@ libraries = {
 "": SubResource("AnimationLibrary_apmn8")
 }
 autoplay = "spin"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_bgxeq")
+stretch_mode = 1

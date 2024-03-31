@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwwyka0pumwgm"]
+[gd_scene load_steps=10 format=3 uid="uid://cwwyka0pumwgm"]
 
 [ext_resource type="Script" path="res://laser/select_screen.gd" id="1_c8w1t"]
 [ext_resource type="PackedScene" uid="uid://brpbq77cc1eq" path="res://car_loading_view.tscn" id="1_kb8wc"]
 [ext_resource type="Texture2D" uid="uid://c05hqxq7r8fxr" path="res://assets/icons/xbox_stick_l_horizontal.png" id="3_476tj"]
 [ext_resource type="FontFile" uid="uid://b8ajumpdawi75" path="res://assets/icons/MuseoModerno-Medium.ttf" id="4_o8v6w"]
 [ext_resource type="Texture2D" uid="uid://boms2tig8mw4q" path="res://assets/icons/xbox_stick_l_vertical.png" id="5_mhp2h"]
+[ext_resource type="Texture2D" uid="uid://mxo76osnoal0" path="res://assets/icons/xbox_button_a.png" id="6_n3lm5"]
+[ext_resource type="Texture2D" uid="uid://dnqg8lnodot6n" path="res://assets/icons/xbox_button_b.png" id="7_j2gsp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_163dh"]
+font = ExtResource("4_o8v6w")
 font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_473e3"]
@@ -30,6 +33,7 @@ layout_mode = 2
 text = "Choose Your Car"
 label_settings = SubResource("LabelSettings_163dh")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -79,4 +83,32 @@ stretch_mode = 2
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "color"
+label_settings = SubResource("LabelSettings_473e3")
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_n3lm5")
+stretch_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "select"
+label_settings = SubResource("LabelSettings_473e3")
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_j2gsp")
+stretch_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "cancel"
 label_settings = SubResource("LabelSettings_473e3")

@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvh0fwg53wpus"]
+[gd_scene load_steps=9 format=3 uid="uid://cvh0fwg53wpus"]
 
 [ext_resource type="Script" path="res://car_base.gd" id="1_cd5ts"]
 [ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="1_rqohb"]
-[ext_resource type="PackedScene" uid="uid://b7to78d8cuybh" path="res://assets/GLTF format/suv.glb" id="2_wv6cm"]
 [ext_resource type="PackedScene" uid="uid://bxbjbeqrtwefe" path="res://smoke.tscn" id="4_8iv1s"]
 [ext_resource type="PackedScene" uid="uid://cdm1o26gdxjcs" path="res://explosion.tscn" id="5_vekap"]
 
@@ -40,8 +39,6 @@ mesh = SubResource("SphereMesh_00jmq")
 
 [node name="CarMesh" type="Node3D" parent="."]
 
-[node name="suv" parent="CarMesh" instance=ExtResource("2_wv6cm")]
-
 [node name="GroundRay" type="RayCast3D" parent="CarMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
 
@@ -52,5 +49,3 @@ emitting = false
 emitting = false
 
 [node name="Explosion" parent="." instance=ExtResource("5_vekap")]
-
-[editable path="CarMesh/suv"]

@@ -1,6 +1,16 @@
 extends Node3D
 
-
+func _ready():
+	spawn_cars()
+	
+func spawn_cars():
+	pass
+	# for each player (number of controllers):
+		# instantiate car - car.setup(player_num)
+		# instantiate subviewport container w/camera, link to car
+		# position car at start
+		# disable input
+		# start countdown
 
 func _process(delta):
 	#var hvel = $Car.linear_velocity

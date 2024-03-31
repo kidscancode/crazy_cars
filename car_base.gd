@@ -1,13 +1,14 @@
 # body_mesh.set_surface_override_material() 0 (shell) 2 (body)
 extends RigidBody3D
 
-var sphere_offset = Vector3.DOWN
+@export var player_num = 0
 @export var acceleration = 35.0
 @export var steering = 19.0
 @export var turn_speed = 4.0
 @export var turn_stop_limit = 0.75
 @export var body_tilt = 35
 
+var sphere_offset = Vector3.DOWN
 var speed_input = 0
 var turn_input = 0
 var facing
@@ -17,16 +18,30 @@ var block_input = false
 var held_powerup = null
 
 @onready var car_mesh = $CarMesh
-@onready var body = $CarMesh/suv/suv
-@onready var body_mesh = $CarMesh/suv/suv/body
+var body #= $CarMesh/suv/suv
+var body_mesh #= $CarMesh/suv/suv/body
 @onready var ground_ray = $CarMesh/GroundRay
 
-@onready var right_wheel = $CarMesh/suv/suv/wheel_frontRight
-@onready var left_wheel = $CarMesh/suv/suv/wheel_frontLeft
+var right_wheel #= $CarMesh/suv/suv/wheel_frontRight
+var left_wheel #= $CarMesh/suv/suv/wheel_frontLeft
 @onready var explosion = $Explosion
 
 func _ready():
 	car_mesh.top_level = true
+	setup(0)
+
+func setup(num):
+	#block_input = true
+	player_num = num
+	var model = load("res://assets/GLTF format/%s.glb" % Globals.car_models[Globals.player_options[player_num]["model"]]).instantiate()
+	car_mesh.add_child(model)
+	body = model.get_child(0)
+	body_mesh = body.get_node("body")
+	left_wheel = body.get_node("wheel_frontLeft")
+	right_wheel = body.get_node("wheel_frontRight")
+	body_mesh.set_surface_override_material(2, Globals.car_colors[Globals.player_options[player_num]["color"]])
+	if Globals.player_options[player_num]["model"] == 2:
+		body_mesh.get_child(0).set_surface_override_material(1, Globals.car_colors[Globals.player_options[player_num]["color"]])
 	
 func _physics_process(delta):
 	facing = linear_velocity.normalized().dot(-car_mesh.global_transform.basis.z)
@@ -45,14 +60,24 @@ func _integrate_forces(state):
 		print("%v" % global_position)
 		state.linear_velocity = Vector3.ZERO
 		teleport_position = null
-	
+
+func _input(event):
+	if block_input:
+		return
+	if event is InputEventJoypadButton and event.device == player_num and event.pressed:
+		#print(event.as_text())
+		if event.button_index == 7:
+			print("use item")
+			
 func get_input():
-	#if block_input:
-		#speed_input = 0
-		#turn_input = 0
-		#return
-	speed_input = Input.get_axis("brake", "accelerate") * acceleration
-	turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)
+	if block_input:
+		speed_input = 0
+		turn_input = 0
+		return
+	var button_status = int(Input.is_joy_button_pressed(player_num, JOY_BUTTON_A)) - int(Input.is_joy_button_pressed(player_num, JOY_BUTTON_B))
+	speed_input = button_status * acceleration
+	turn_input = -Input.get_joy_axis(player_num, JOY_AXIS_LEFT_X) * deg_to_rad(steering)
+	#turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)
 	
 func _process(delta):
 	if not ground_ray.is_colliding():
@@ -85,6 +110,7 @@ func explode():
 	freeze = true
 	car_mesh.hide()
 	explosion.activate()
+	Input.start_joy_vibration(player_num, 1.0, 1.0, 0.5)
 	#block_input = true
 	await get_tree().create_timer(2.0).timeout
 	teleport_position = last_checkpoint

@@ -11,18 +11,18 @@ var car_colors = [
 ]
 
 var car_models = [
-	preload("res://assets/GLTF format/hatchbackSports.glb"),
-	preload("res://assets/GLTF format/sedan.glb"),
-	preload("res://assets/GLTF format/sedanSports.glb"),
-	preload("res://assets/GLTF format/suv.glb"),
-	preload("res://assets/GLTF format/taxi.glb"),
-	preload("res://assets/GLTF format/truck.glb"),
-	preload("res://assets/GLTF format/van.glb"),
+	"hatchbackSports",
+	"sedan",
+	"sedanSports",
+	"suv",
+	"taxi",
+	"truck",
+	"van",
 ]
 
 var player_options = [
 	{
-		"model": 0,
+		"model": 2,
 		"color": 1
 	},
 	{
@@ -40,8 +40,9 @@ var player_options = [
 ]
 
 func _ready():
+	print(Input.get_connected_joypads())
 	Input.joy_connection_changed.connect(joy_connect)
 	
 func joy_connect(device_num, connected):
 	if connected:
-		print(device_num)
+		print("connected: " + str(device_num))

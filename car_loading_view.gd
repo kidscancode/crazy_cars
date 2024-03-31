@@ -27,6 +27,8 @@ func _input(event):
 		if event.button_index == JOY_BUTTON_A and not locked:
 			locked = true
 			$Label.text = "Ready!"
+			Globals.player_options[player_num]["model"] = car_scene.current_car
+			Globals.player_options[player_num]["color"] = car_scene.current_color
 		if event.button_index == JOY_BUTTON_B and locked:
 			locked = false
 			$Label.text = "      "
