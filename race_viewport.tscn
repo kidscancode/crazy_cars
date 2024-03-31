@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqv2710kev4n8"]
+
+[ext_resource type="Script" path="res://FixedCamera.gd" id="1_b1pjo"]
+[ext_resource type="Script" path="res://race_viewport.gd" id="1_k2oao"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="2_g8b6u"]
+
+[node name="RaceViewport" type="SubViewportContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+script = ExtResource("1_k2oao")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+msaa_3d = 1
+screen_space_aa = 1
+size = Vector2i(2, 2)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="FixedCamera" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, -6.85689e-16, 9.02726e-17, 9.02727e-17, 0.258819, 0.965926, -6.85689e-16, -0.965926, 0.258819, -0.17659, 28.0662, 21.7514)
+script = ExtResource("1_b1pjo")
+offset = Vector3(2.08165e-12, 20, 12)
+
+[node name="ChaseCamera" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, -0.433693, 3.89451, 5.54128)
+current = true
+script = ExtResource("2_g8b6u")
+lerp_speed = 2.0
+offset = Vector3(2.08165e-12, 11, 9)

@@ -56,6 +56,7 @@ func _integrate_forces(state):
 	if teleport_position:
 		state.transform = teleport_position.global_transform
 		car_mesh.global_transform = teleport_position.global_transform
+		body.rotation.z = 0  
 		print("teleporting to %v" % teleport_position.global_position)
 		print("%v" % global_position)
 		state.linear_velocity = Vector3.ZERO

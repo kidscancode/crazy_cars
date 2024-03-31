@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cdm1o26gdxjcs" path="res://explosion.tscn" id="5_vekap"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dtpcx"]
+friction = 2.0
 bounce = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ywja5"]
@@ -24,11 +25,15 @@ height = 2.0
 
 [node name="Car" type="RigidBody3D"]
 collision_layer = 2
+mass = 1.5
 physics_material_override = SubResource("PhysicsMaterial_dtpcx")
 gravity_scale = 3.0
 freeze_mode = 1
 angular_damp = 10.0
 script = ExtResource("1_cd5ts")
+acceleration = 80.0
+turn_speed = 5.0
+turn_stop_limit = 4.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_ywja5")

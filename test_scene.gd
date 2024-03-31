@@ -5,10 +5,11 @@ func _ready():
 	
 func spawn_cars():
 	pass
+	# set up gridcontainer
 	# for each player (number of controllers):
 		# instantiate car - car.setup(player_num)
-		# instantiate subviewport container w/camera, link to car
-		# position car at start
+		# instantiate subviewport container w/camera(s), link to car
+		# position car at spawn point
 		# disable input
 		# start countdown
 
