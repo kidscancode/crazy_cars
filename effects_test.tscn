@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://3dufipekg2ig"]
+
+[ext_resource type="PackedScene" uid="uid://by5e3l4per3bn" path="res://assets/GLTF format/sedan.glb" id="1_qqexc"]
+[ext_resource type="Shader" path="res://hologram.gdshader" id="2_2g2lf"]
+[ext_resource type="Shader" uid="uid://dnnw38ptx3rr3" path="res://fire_aura.tres" id="3_jjimp"]
+[ext_resource type="Texture2D" uid="uid://chg7slixpwbjv" path="res://assets/objects/T_PerlinNoise_Tiled.png" id="4_nqfqf"]
+[ext_resource type="Texture2D" uid="uid://dlu858b1pe7km" path="res://assets/objects/T_fire_flipbook4_sm.png" id="5_imuni"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l5nfl"]
+render_priority = 0
+shader = ExtResource("2_2g2lf")
+shader_parameter/lines1 = 162.0
+shader_parameter/lines2 = 48.0
+shader_parameter/color = Color(0.215686, 0.619608, 1, 1)
+shader_parameter/_emission = 7.399
+shader_parameter/_fresnel = 1.574
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6f863"]
+render_priority = 0
+shader = ExtResource("3_jjimp")
+shader_parameter/aura_color = Color(1, 0.572549, 0.235294, 1)
+shader_parameter/aura_intensity = 10.0
+shader_parameter/speed = Vector2(10, 30)
+shader_parameter/aura_scale = 0.007
+shader_parameter/aura_texture = ExtResource("4_nqfqf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vddqv"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_imuni")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 5
+particles_anim_loop = false
+proximity_fade_enabled = true
+proximity_fade_distance = 0.25
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_stulw"]
+emission_shape_scale = Vector3(0.6, 0.2, 0.8)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -180.0
+angle_max = 180.0
+radial_velocity_min = 0.1
+radial_velocity_max = 0.15
+gravity = Vector3(2.08165e-12, 1, 2.08165e-12)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_l0cjp"]
+
+[node name="effects_test" type="Node3D"]
+
+[node name="sedan" parent="." instance=ExtResource("1_qqexc")]
+
+[node name="body" parent="sedan/sedan" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_l5nfl")
+surface_material_override/1 = SubResource("ShaderMaterial_l5nfl")
+surface_material_override/2 = SubResource("ShaderMaterial_l5nfl")
+surface_material_override/5 = SubResource("ShaderMaterial_l5nfl")
+
+[node name="sedan2" parent="." instance=ExtResource("1_qqexc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85136, 0, 0)
+
+[node name="body" parent="sedan2/sedan" index="0"]
+material_overlay = SubResource("ShaderMaterial_6f863")
+
+[node name="Fire" type="GPUParticles3D" parent="sedan2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.745969, 0)
+material_override = SubResource("StandardMaterial3D_vddqv")
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_stulw")
+draw_pass_1 = SubResource("QuadMesh_l0cjp")
+
+[editable path="sedan"]
+[editable path="sedan2"]

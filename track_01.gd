@@ -17,6 +17,7 @@ func _ready():
 		# position car at spawn point
 		# disable input
 		# start countdown
+		
 func spawn_cars():
 	var players = Input.get_connected_joypads()
 	if players.size() < 3:

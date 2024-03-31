@@ -7,8 +7,15 @@ var block_input_x = false
 var block_input_y = false
 var locked = false
 
+@onready var vp_container = $CarLoadingViewport/SubViewportContainer
 @onready var car_scene = $CarLoadingViewport/SubViewportContainer/SubViewport/CarLoadingScene
 
+func set_active(on):
+	if on:
+		vp_container.material.blend_mode = CanvasItemMaterial.BLEND_MODE_MIX
+	else:
+		vp_container.material.blend_mode = CanvasItemMaterial.BLEND_MODE_MUL
+		
 #func _process(delta):
 	#if block_input:
 		#return
@@ -16,6 +23,7 @@ var locked = false
 	#var v = Input.get_joy_axis(player_num, JOY_AXIS_LEFT_Y)
 
 func _ready():
+	vp_container.material = vp_container.material.duplicate()
 	$Label.text = "      "
 	car_scene.current_car = Globals.player_options[player_num]["model"]
 	car_scene.current_color = Globals.player_options[player_num]["color"]
