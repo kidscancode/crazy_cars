@@ -16,6 +16,7 @@ var last_checkpoint = null
 var teleport_position = null
 var block_input = false
 var held_powerup = null
+var lap_counter = 0
 
 @onready var car_mesh = $CarMesh
 var body #= $CarMesh/suv/suv

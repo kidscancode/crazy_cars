@@ -23,7 +23,7 @@ material = SubResource("StandardMaterial3D_vviip")
 radius = 1.0
 height = 2.0
 
-[node name="Car" type="RigidBody3D"]
+[node name="Car" type="RigidBody3D" groups=["cars"]]
 collision_layer = 2
 mass = 1.5
 physics_material_override = SubResource("PhysicsMaterial_dtpcx")

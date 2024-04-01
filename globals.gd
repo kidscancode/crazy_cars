@@ -2,6 +2,8 @@ extends Node
 
 var debug = true
 
+var checkpoint_count = 0
+
 var car_colors = [
 	preload("res://assets/car_mats/black_paint.tres"),
 	preload("res://assets/car_mats/blue_paint.tres"),
@@ -39,6 +41,24 @@ var player_options = [
 	},
 ]
 
+var icons = {
+	"x": "",
+	"shield": "",
+	"fire": "",
+	"3": "3",
+	"2": "2",
+	"1": "1",
+	"go": "",
+	"boost": "",
+	"weight": "",
+	"jump": "",
+	"ghost": "",
+	"gun": "",
+	"mine": "",
+	"lap1": "1-3",
+	"lap2": "2-3",
+	"lap3": "3-3"
+}
 func _ready():
 	Input.joy_connection_changed.connect(joy_connect)
 	

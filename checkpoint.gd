@@ -6,12 +6,15 @@ func _ready():
 	$MeshInstance3D.visible = Globals.debug
 	
 func _on_body_entered(body):
-	print(body.name + " entered checkpoint " + str(num))
+	print("player %s entered checkpoint %s" % [body.player_num, num])
 	if not body.last_checkpoint:
 		body.last_checkpoint = self
+		body.lap_counter = 1
 		return
-	if body.last_checkpoint.num >= num:
-		print("Checkpoint out of order")
-	else:
-		print("setting checkpoint: " + str(num))
-		body.last_checkpoint = self
+	if num == 0 and body.last_checkpoint.num == Globals.checkpoint_count-1:
+		body.lap_counter += 1
+	body.last_checkpoint = self
+	#if body.last_checkpoint.num >= num:
+		#pass
+	#else:
+		#body.last_checkpoint = self

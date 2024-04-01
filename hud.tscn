@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvf50cd2vbyrq"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_qb2kt"]
+[ext_resource type="FontFile" uid="uid://b8ajumpdawi75" path="res://assets/icons/MuseoModerno-Medium.ttf" id="1_rthsh"]
+[ext_resource type="FontFile" uid="uid://cjvuljwbydxhg" path="res://assets/icons/Font Awesome 6 Free-Solid-900.otf" id="2_0lnws"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nkds8"]
+font = ExtResource("1_rthsh")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdhxr"]
+font = ExtResource("2_0lnws")
+font_size = 300
+font_color = Color(1, 0.752941, 0.0117647, 0.921569)
+
+[node name="HUD" type="CanvasLayer" groups=["huds"]]
+script = ExtResource("1_qb2kt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Speed" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "100"
+label_settings = SubResource("LabelSettings_nkds8")
+
+[node name="Lap" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "1"
+label_settings = SubResource("LabelSettings_nkds8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" type="Label" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_gdhxr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
