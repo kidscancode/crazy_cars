@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxprf4njkbvuq"]
+
+[ext_resource type="PackedScene" uid="uid://c5jmijitbct87" path="res://conveyor_belt.tscn" id="1_l16xc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_771wy"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ut1ym"]
+sky_material = SubResource("ProceduralSkyMaterial_771wy")
+
+[sub_resource type="Environment" id="Environment_wwnpk"]
+background_mode = 2
+sky = SubResource("Sky_ut1ym")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e7b56"]
+rough = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ievsm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gopq3"]
+
+[node name="ConveyorBeltTest" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wwnpk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06768, 1.56709, 3.93087)
+fov = 86.0
+
+[node name="ConveyorBelt" parent="." instance=ExtResource("1_l16xc")]
+physics_material_override = SubResource("PhysicsMaterial_e7b56")
+constant_linear_velocity = Vector3(100, 2.08165e-12, 2.08165e-12)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4168, 2.39632, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_ievsm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_gopq3")

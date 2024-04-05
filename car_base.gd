@@ -29,7 +29,7 @@ var left_wheel #= $CarMesh/suv/suv/wheel_frontLeft
 
 func _ready():
 	car_mesh.top_level = true
-	setup(0)
+	#setup(0)
 
 func setup(num):
 	#block_input = true
@@ -70,6 +70,8 @@ func _input(event):
 		#print(event.as_text())
 		if event.button_index == 7:
 			print("use item")
+			$CarMesh/Rocket.speed = linear_velocity.length()
+			$CarMesh/Rocket.launch(self)
 			
 func get_input():
 	if block_input:

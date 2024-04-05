@@ -1,8 +1,10 @@
 extends Node3D
 
+@export var initial_delay = 5.0
 @export var delay = 5.0
 
 func _ready():
+	await get_tree().create_timer(initial_delay).timeout
 	$Timer.wait_time = delay
 	$Timer.start()
 

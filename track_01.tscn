@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://duumhl6n0or8c"]
+[gd_scene load_steps=14 format=3 uid="uid://duumhl6n0or8c"]
 
 [ext_resource type="Script" path="res://track_01.gd" id="1_73qdv"]
 [ext_resource type="PackedScene" uid="uid://c0ixrjaa3sdxn" path="res://assets/tracks/track1.glb" id="1_skn7n"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dlaf4elpby2gm" path="res://gate.tscn" id="7_5f6ir"]
 [ext_resource type="PackedScene" uid="uid://cse62jrycfedv" path="res://mine.tscn" id="8_sguj2"]
 [ext_resource type="PackedScene" uid="uid://djl0p7cgk73ia" path="res://flamethrower/flame_thrower.tscn" id="10_6spbo"]
-[ext_resource type="PackedScene" uid="uid://dqv2710kev4n8" path="res://race_viewport.tscn" id="10_8u4tt"]
 [ext_resource type="AudioStream" uid="uid://bb1wyaouosyns" path="res://assets/audio/m64_race.mp3" id="10_onv77"]
 [ext_resource type="PackedScene" uid="uid://dpelgsr4toyj5" path="res://spikes.tscn" id="12_mxkco"]
 
@@ -108,9 +107,11 @@ off_time = 0
 
 [node name="Spikes2" parent="track1" instance=ExtResource("12_mxkco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.741, 0, -36.5106)
+initial_delay = 2.5
 
 [node name="Spikes3" parent="track1" instance=ExtResource("12_mxkco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.741, 0, -34.0106)
+initial_delay = 2.5
 
 [node name="Spikes4" parent="track1" instance=ExtResource("12_mxkco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.741, 0, -31.5106)
@@ -129,15 +130,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="RaceViewport" parent="GridContainer" instance=ExtResource("10_8u4tt")]
-layout_mode = 2
-
-[node name="RaceViewport2" parent="GridContainer" instance=ExtResource("10_8u4tt")]
-layout_mode = 2
-
-[node name="RaceViewport3" parent="GridContainer" instance=ExtResource("10_8u4tt")]
-layout_mode = 2
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_onv77")

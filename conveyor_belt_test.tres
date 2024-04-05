@@ -1,0 +1,81 @@
+[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://dtfd1eae8exqy"]
+
+[ext_resource type="Texture2D" uid="uid://0wof2ikeolop" path="res://assets/texture_01.png" id="1_wiui0"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_jvfi5"]
+expanded_output_ports = [0]
+texture = ExtResource("1_wiui0")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_mm417"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_lv0w4"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_r0jnu"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(-0.5, 2.08165e-12)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_1vgib"]
+parameter_name = "speed"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_l0vfy"]
+parameter_name = "lod"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform vec2 speed;
+uniform float lod;
+uniform sampler2D tex_frg_2 : source_color;
+
+
+
+void fragment() {
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// Vector2Parameter:6
+	vec2 n_out6p0 = speed;
+
+
+// VectorOp:5
+	vec2 n_out5p0 = vec2(n_out4p0) * n_out6p0;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(1.00000, 1.00000);
+	vec2 n_out3p0 = n_out5p0 * n_in3p1 + UV;
+
+
+// FloatParameter:7
+	float n_out7p0 = lod;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = textureLod(tex_frg_2, n_out3p0, n_out7p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(1680, 280)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_jvfi5")
+nodes/fragment/2/position = Vector2(627, 493)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_mm417")
+nodes/fragment/3/position = Vector2(-120, 600)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_lv0w4")
+nodes/fragment/4/position = Vector2(-1440, 620)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_r0jnu")
+nodes/fragment/5/position = Vector2(-580, 640)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVec2Parameter_1vgib")
+nodes/fragment/6/position = Vector2(-1520, 900)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_l0vfy")
+nodes/fragment/7/position = Vector2(-280, 1120)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 2, 0, 5, 0, 3, 2, 4, 0, 5, 0, 6, 0, 5, 1, 7, 0, 2, 1)

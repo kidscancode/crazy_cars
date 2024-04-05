@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c05hqxq7r8fxr" path="res://assets/icons/xbox_stick_l_horizontal.png" id="3_476tj"]
 [ext_resource type="FontFile" uid="uid://b8ajumpdawi75" path="res://assets/icons/MuseoModerno-Medium.ttf" id="4_o8v6w"]
 [ext_resource type="Texture2D" uid="uid://boms2tig8mw4q" path="res://assets/icons/xbox_stick_l_vertical.png" id="5_mhp2h"]
-[ext_resource type="Texture2D" uid="uid://mxo76osnoal0" path="res://assets/icons/xbox_button_a.png" id="6_n3lm5"]
-[ext_resource type="Texture2D" uid="uid://dnqg8lnodot6n" path="res://assets/icons/xbox_button_b.png" id="7_j2gsp"]
+[ext_resource type="Texture2D" uid="uid://b8l3dpgprlra6" path="res://assets/icons/switch_buttons_down_outline.png" id="6_ocm4g"]
+[ext_resource type="Texture2D" uid="uid://bqyil3qk0e7xg" path="res://assets/icons/switch_buttons_right_outline.png" id="7_6wjsr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_163dh"]
 font = ExtResource("4_o8v6w")
@@ -91,7 +91,7 @@ layout_mode = 2
 [node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("6_n3lm5")
+texture = ExtResource("6_ocm4g")
 stretch_mode = 2
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2"]
@@ -105,7 +105,7 @@ layout_mode = 2
 [node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("7_j2gsp")
+texture = ExtResource("7_6wjsr")
 stretch_mode = 2
 
 [node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer2"]
