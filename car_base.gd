@@ -68,7 +68,7 @@ func _input(event):
 		return
 	if event is InputEventJoypadButton and event.device == player_num and event.pressed:
 		#print(event.as_text())
-		if event.button_index == 7:
+		if event.button_index in [7, 10]:
 			print("use item")
 			$CarMesh/Rocket.speed = linear_velocity.length()
 			$CarMesh/Rocket.launch(self)

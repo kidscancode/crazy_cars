@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://dklmh025m8xp8"]
+
+[ext_resource type="Shader" path="res://water1.gdshader" id="1_2ay64"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j5vcn"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7ri14"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_j5vcn")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gd1ub"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lmdw6"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_gd1ub")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a52rn"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cgbi8"]
+seamless = true
+noise = SubResource("FastNoiseLite_a52rn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hu1l0"]
+render_priority = 0
+shader = ExtResource("1_2ay64")
+shader_parameter/albedo = Color(0, 0.322, 0.431, 1)
+shader_parameter/albedo2 = Color(0, 0.475, 0.765, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.015
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.15
+shader_parameter/color_deep = Color(0.106, 0.294, 0.329, 1)
+shader_parameter/color_shallow = Color(0, 0.553, 0.651, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.2
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+shader_parameter/wave = SubResource("NoiseTexture2D_cgbi8")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_7ri14")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_lmdw6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gsrkx"]
+material = SubResource("ShaderMaterial_hu1l0")
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="Water" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_gsrkx")

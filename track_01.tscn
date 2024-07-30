@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://duumhl6n0or8c"]
+[gd_scene load_steps=15 format=3 uid="uid://duumhl6n0or8c"]
 
 [ext_resource type="Script" path="res://track_01.gd" id="1_73qdv"]
 [ext_resource type="PackedScene" uid="uid://c0ixrjaa3sdxn" path="res://assets/tracks/track1.glb" id="1_skn7n"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://djl0p7cgk73ia" path="res://flamethrower/flame_thrower.tscn" id="10_6spbo"]
 [ext_resource type="AudioStream" uid="uid://bb1wyaouosyns" path="res://assets/audio/m64_race.mp3" id="10_onv77"]
 [ext_resource type="PackedScene" uid="uid://dpelgsr4toyj5" path="res://spikes.tscn" id="12_mxkco"]
+[ext_resource type="PackedScene" uid="uid://bep626ube3uhe" path="res://water_2.tscn" id="13_mvd5a"]
 
 [sub_resource type="Environment" id="Environment_b7msr"]
 background_energy_multiplier = 0.5
@@ -134,3 +135,6 @@ size_flags_vertical = 3
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_onv77")
 volume_db = -12.0
+
+[node name="Water2" parent="." instance=ExtResource("13_mvd5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49363, 2.44847, -67.49)
