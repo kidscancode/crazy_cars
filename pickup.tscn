@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4pbuku5qcm7t"]
 
-[ext_resource type="Script" path="res://pickup.gd" id="1_5s6q1"]
+[ext_resource type="Script" uid="uid://dtk080tyqiah0" path="res://pickup.gd" id="1_5s6q1"]
 [ext_resource type="ArrayMesh" uid="uid://biqoeontpmxwf" path="res://assets/objects/Prop_Block_Question_Mark.obj" id="1_q2ksw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4l1h"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c368gbuoig7i7"]
 
-[ext_resource type="Script" path="res://boost.gd" id="1_be4tr"]
+[ext_resource type="Script" uid="uid://slid5eltb4nc" path="res://boost.gd" id="1_be4tr"]
 [ext_resource type="FontFile" uid="uid://cjvuljwbydxhg" path="res://assets/icons/Font Awesome 6 Free-Solid-900.otf" id="1_wbgx6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hunnf"]

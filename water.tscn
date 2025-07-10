@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dklmh025m8xp8"]
 
-[ext_resource type="Shader" path="res://water1.gdshader" id="1_2ay64"]
+[ext_resource type="Shader" uid="uid://cueanhndaw88j" path="res://water1.gdshader" id="1_2ay64"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j5vcn"]
 noise_type = 3
@@ -34,6 +34,9 @@ shader_parameter/albedo = Color(0, 0.322, 0.431, 1)
 shader_parameter/albedo2 = Color(0, 0.475, 0.765, 1)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.02
+shader_parameter/wave = SubResource("NoiseTexture2D_cgbi8")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_7ri14")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_lmdw6")
 shader_parameter/wave_direction = Vector2(2, 0)
 shader_parameter/wave_direction2 = Vector2(0, 1)
 shader_parameter/time_scale = 0.015
@@ -47,9 +50,6 @@ shader_parameter/edge_scale = 0.2
 shader_parameter/near = 1.0
 shader_parameter/far = 100.0
 shader_parameter/edge_color = Color(1, 1, 1, 1)
-shader_parameter/wave = SubResource("NoiseTexture2D_cgbi8")
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_7ri14")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_lmdw6")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gsrkx"]
 material = SubResource("ShaderMaterial_hu1l0")

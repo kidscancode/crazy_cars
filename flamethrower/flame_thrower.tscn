@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://djl0p7cgk73ia"]
 
-[ext_resource type="Script" path="res://flamethrower/flame_thrower.gd" id="1_bwu02"]
+[ext_resource type="Script" uid="uid://swwqfxqoovam" path="res://flamethrower/flame_thrower.gd" id="1_bwu02"]
 [ext_resource type="PackedScene" uid="uid://yol28w5xpoou" path="res://flamethrower/cube01.glb" id="3_l2jvx"]
 
 [sub_resource type="Gradient" id="Gradient_fcbyw"]

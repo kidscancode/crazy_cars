@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://djgiua08q6i7"]
 
 [ext_resource type="Shader" uid="uid://cdti3xomtya55" path="res://laser/laser_effect.tres" id="1_3lvkb"]
-[ext_resource type="Script" path="res://laser/laser.gd" id="1_ah2g5"]
+[ext_resource type="Script" uid="uid://de1ykn575uwby" path="res://laser/laser.gd" id="1_ah2g5"]
 [ext_resource type="ArrayMesh" uid="uid://8d0mtfydxgcb" path="res://laser/laser_beam.obj" id="1_wjbq0"]
 [ext_resource type="ArrayMesh" uid="uid://cuj61bcc7rpes" path="res://laser/laser_beam_pulse.obj" id="3_7v04y"]
 
@@ -14,8 +14,8 @@ noise = SubResource("FastNoiseLite_ja8t4")
 render_priority = 0
 shader = ExtResource("1_3lvkb")
 shader_parameter/beam_texture_speed = Vector2(0.5, 0.5)
-shader_parameter/beam_texture_power = 2.0
 shader_parameter/beam_texture = SubResource("NoiseTexture2D_v1j7l")
+shader_parameter/beam_texture_power = 2.0
 
 [sub_resource type="Curve" id="Curve_sb1gk"]
 _data = [Vector2(0, 0.521132), 0.0, 0.0, 0, 0, Vector2(1, 0.50349), 0.0, 0.0, 0, 0]
@@ -26,7 +26,7 @@ _data = [Vector2(0, 0.50853), 0.0, 0.0, 0, 0, Vector2(1, 0.50349), 0.0, 0.0, 0, 
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_uw22s"]
-max_value = 8.0
+_limits = [0.0, 8.0, 0.0, 1.0]
 _data = [Vector2(0, 0.0221015), 0.0, 0.0, 0, 0, Vector2(0.244344, 8), 0.0, 0.0, 0, 0, Vector2(1, 7.97984), 0.0, 0.0, 0, 0]
 point_count = 3
 
@@ -125,8 +125,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmama"]
 _data = {
-"RESET": SubResource("Animation_mmxvs"),
-"fire": SubResource("Animation_egncx")
+&"RESET": SubResource("Animation_mmxvs"),
+&"fire": SubResource("Animation_egncx")
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_knr4l"]

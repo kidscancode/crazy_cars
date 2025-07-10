@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://gexgosj7ejv7"]
 
-[ext_resource type="Script" path="res://car_loading_scene.gd" id="1_a1sqf"]
+[ext_resource type="Script" uid="uid://luduns8pod0l" path="res://car_loading_scene.gd" id="1_a1sqf"]
 [ext_resource type="PackedScene" uid="uid://b7to78d8cuybh" path="res://assets/GLTF format/suv.glb" id="2_3xmka"]
 [ext_resource type="PackedScene" uid="uid://dqou6deuncrn2" path="res://assets/GLTF format/hatchbackSports.glb" id="3_cmg8w"]
 [ext_resource type="PackedScene" uid="uid://by5e3l4per3bn" path="res://assets/GLTF format/sedan.glb" id="5_d3rdi"]
@@ -52,8 +52,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_apmn8"]
 _data = {
-"RESET": SubResource("Animation_3toyq"),
-"spin": SubResource("Animation_fxpou")
+&"RESET": SubResource("Animation_3toyq"),
+&"spin": SubResource("Animation_fxpou")
 }
 
 [node name="CarLoadingScene" type="Node3D"]
@@ -95,7 +95,7 @@ spot_range = 6.61991
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_apmn8")
+&"": SubResource("AnimationLibrary_apmn8")
 }
 autoplay = "spin"
 

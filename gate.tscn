@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dlaf4elpby2gm"]
 
 [ext_resource type="PackedScene" uid="uid://bf48c7edm5201" path="res://assets/objects/gateLargeWide_teamYellow.gltf.glb" id="1_i071x"]
-[ext_resource type="Script" path="res://gate.gd" id="1_ukoba"]
+[ext_resource type="Script" uid="uid://4oy2xwaqd7vf" path="res://gate.gd" id="1_ukoba"]
 [ext_resource type="Shader" uid="uid://bhuycfujwnpnp" path="res://gate.tres" id="3_t2lgt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owhrq"]
@@ -18,9 +18,9 @@ noise = SubResource("FastNoiseLite_3lw04")
 render_priority = 0
 shader = ExtResource("3_t2lgt")
 shader_parameter/portal_color = Color(0.627451, 0.447059, 1, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_jte7i")
 shader_parameter/emission_strength = 1.5
 shader_parameter/emission_color = Color(0.627451, 0.447059, 1, 1)
-shader_parameter/noise = SubResource("NoiseTexture2D_jte7i")
 
 [sub_resource type="QuadMesh" id="QuadMesh_am2pa"]
 material = SubResource("ShaderMaterial_n2j5c")

@@ -16,7 +16,10 @@ dest_files=["res://.godot/imported/Track_Cliff_Incline_Striped_3_Tall_Single.obj
 [params]
 
 generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
 scale_mesh=Vector3(5, 5, 5)
 offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
 force_disable_mesh_compression=false

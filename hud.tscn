@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvf50cd2vbyrq"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_qb2kt"]
+[ext_resource type="Script" uid="uid://b02nfv63aqwv3" path="res://hud.gd" id="1_qb2kt"]
 [ext_resource type="FontFile" uid="uid://b8ajumpdawi75" path="res://assets/icons/MuseoModerno-Medium.ttf" id="1_rthsh"]
 [ext_resource type="FontFile" uid="uid://cjvuljwbydxhg" path="res://assets/icons/Font Awesome 6 Free-Solid-900.otf" id="2_0lnws"]
 

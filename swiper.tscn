@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cykr4fd0joeh2"]
 
 [ext_resource type="PackedScene" uid="uid://fqeq4lg8pg22" path="res://assets/objects/swiperLong_teamYellow.gltf.glb" id="1_rg883"]
-[ext_resource type="Script" path="res://swiper.gd" id="1_xqgof"]
+[ext_resource type="Script" uid="uid://dpeg8naj6q3rc" path="res://swiper.gd" id="1_xqgof"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_le47u"]
 bounce = 2.0
@@ -46,8 +46,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_doqma"]
 _data = {
-"RESET": SubResource("Animation_5fth1"),
-"rotate": SubResource("Animation_qhedo")
+&"RESET": SubResource("Animation_5fth1"),
+&"rotate": SubResource("Animation_qhedo")
 }
 
 [node name="Swiper" type="Node3D"]

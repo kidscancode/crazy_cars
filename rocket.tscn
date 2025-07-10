@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dw8aoma740mb8"]
 
 [ext_resource type="ArrayMesh" uid="uid://cdt5ygdcnkjwu" path="res://assets/objects/rocket.obj" id="1_pj11b"]
-[ext_resource type="Script" path="res://rocket.gd" id="1_vnp65"]
+[ext_resource type="Script" uid="uid://047btp3s2kyg" path="res://rocket.gd" id="1_vnp65"]
 [ext_resource type="PackedScene" uid="uid://cdm1o26gdxjcs" path="res://explosion.tscn" id="3_35nur"]
 [ext_resource type="Texture2D" uid="uid://dlu858b1pe7km" path="res://assets/objects/T_fire_flipbook4_sm.png" id="4_2iu1j"]
 

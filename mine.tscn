@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cse62jrycfedv"]
 
-[ext_resource type="Script" path="res://mine.gd" id="1_2uxuo"]
+[ext_resource type="Script" uid="uid://bw650w2p8fh1u" path="res://mine.gd" id="1_2uxuo"]
 [ext_resource type="PackedScene" uid="uid://ujehkgapdrv3" path="res://assets/objects/button_teamRed.gltf.glb" id="1_6dy11"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6dyyx"]

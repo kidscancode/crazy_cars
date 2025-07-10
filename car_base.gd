@@ -70,8 +70,8 @@ func _input(event):
 		#print(event.as_text())
 		if event.button_index in [7, 10]:
 			print("use item")
-			$CarMesh/Rocket.speed = linear_velocity.length()
-			$CarMesh/Rocket.launch(self)
+			#$CarMesh/Rocket.speed = linear_velocity.length()
+			#$CarMesh/Rocket.launch(self)
 			
 func get_input():
 	if block_input:

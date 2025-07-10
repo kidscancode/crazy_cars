@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://brpbq77cc1eq"]
 
-[ext_resource type="Script" path="res://car_loading_view.gd" id="1_3uapb"]
+[ext_resource type="Script" uid="uid://c4e0gi8at28ui" path="res://car_loading_view.gd" id="1_3uapb"]
 [ext_resource type="PackedScene" uid="uid://gexgosj7ejv7" path="res://car_loading_scene.tscn" id="1_aetg1"]
 [ext_resource type="FontFile" uid="uid://b8ajumpdawi75" path="res://assets/icons/MuseoModerno-Medium.ttf" id="3_5k4r2"]
 

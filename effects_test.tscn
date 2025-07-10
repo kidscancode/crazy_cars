@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://3dufipekg2ig"]
 
 [ext_resource type="PackedScene" uid="uid://by5e3l4per3bn" path="res://assets/GLTF format/sedan.glb" id="1_qqexc"]
-[ext_resource type="Shader" path="res://hologram.gdshader" id="2_2g2lf"]
+[ext_resource type="Shader" uid="uid://lpig3cq2b14o" path="res://hologram.gdshader" id="2_2g2lf"]
 [ext_resource type="Shader" uid="uid://dnnw38ptx3rr3" path="res://fire_aura.tres" id="3_jjimp"]
 [ext_resource type="Texture2D" uid="uid://chg7slixpwbjv" path="res://assets/objects/T_PerlinNoise_Tiled.png" id="4_nqfqf"]
 [ext_resource type="Texture2D" uid="uid://dlu858b1pe7km" path="res://assets/objects/T_fire_flipbook4_sm.png" id="5_imuni"]
-[ext_resource type="Shader" path="res://shield.gdshader" id="6_hfmf2"]
+[ext_resource type="Shader" uid="uid://bdm7w5k7iugyw" path="res://shield.gdshader" id="6_hfmf2"]
 [ext_resource type="ArrayMesh" uid="uid://cdt5ygdcnkjwu" path="res://assets/objects/rocket.obj" id="7_gb0wa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l5nfl"]
@@ -68,11 +68,11 @@ render_priority = 0
 shader = ExtResource("6_hfmf2")
 shader_parameter/albedo = Color(0.411765, 0.937255, 1, 1)
 shader_parameter/emission_color = Color(0.458824, 0.870588, 0.976471, 1)
+shader_parameter/texture_noise = SubResource("NoiseTexture3D_413lk")
 shader_parameter/emission_strength = 8.381
 shader_parameter/rim_steepness = 3.0
 shader_parameter/uv_scale = Vector3(1, 1, 1)
 shader_parameter/uv_offset = Vector3(2.08165e-12, 1, -0.5)
-shader_parameter/texture_noise = SubResource("NoiseTexture3D_413lk")
 
 [sub_resource type="SphereMesh" id="SphereMesh_g6m0w"]
 lightmap_size_hint = Vector2i(49, 25)

@@ -5,6 +5,7 @@ func _ready():
 	
 func spawn_cars():
 	pass
+	$Car.setup(0)
 	# set up gridcontainer
 	# for each player (number of controllers):
 		# instantiate car - car.setup(player_num)
@@ -18,5 +19,3 @@ func _process(delta):
 	#hvel.y = 0
 	$Debug/Label.text = "%3.2f" % $Car.linear_velocity.length()
 	#$Debug/Label2.text = str($Car.facing)
-
-

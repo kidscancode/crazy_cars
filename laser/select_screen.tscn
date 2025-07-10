@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwwyka0pumwgm"]
 
-[ext_resource type="Script" path="res://laser/select_screen.gd" id="1_c8w1t"]
+[ext_resource type="Script" uid="uid://hary3cer35q8" path="res://laser/select_screen.gd" id="1_c8w1t"]
 [ext_resource type="PackedScene" uid="uid://brpbq77cc1eq" path="res://car_loading_view.tscn" id="1_kb8wc"]
 [ext_resource type="Texture2D" uid="uid://c05hqxq7r8fxr" path="res://assets/icons/xbox_stick_l_horizontal.png" id="3_476tj"]
 [ext_resource type="FontFile" uid="uid://b8ajumpdawi75" path="res://assets/icons/MuseoModerno-Medium.ttf" id="4_o8v6w"]

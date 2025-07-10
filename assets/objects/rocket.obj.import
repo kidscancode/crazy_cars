@@ -16,7 +16,10 @@ dest_files=["res://.godot/imported/rocket.obj-627615fb3cc3a2068838ee42d468d9da.m
 [params]
 
 generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
 scale_mesh=Vector3(0.25, 0.25, 0.25)
 offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
 force_disable_mesh_compression=false

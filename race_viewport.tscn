@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqv2710kev4n8"]
 
-[ext_resource type="Script" path="res://FixedCamera.gd" id="1_b1pjo"]
-[ext_resource type="Script" path="res://race_viewport.gd" id="1_k2oao"]
-[ext_resource type="Script" path="res://Camera3D.gd" id="2_g8b6u"]
+[ext_resource type="Script" uid="uid://bxx3772r3a2l4" path="res://FixedCamera.gd" id="1_b1pjo"]
+[ext_resource type="Script" uid="uid://c26h2ixqve5j0" path="res://race_viewport.gd" id="1_k2oao"]
+[ext_resource type="Script" uid="uid://cjlxlb6rucxbq" path="res://Camera3D.gd" id="2_g8b6u"]
 [ext_resource type="PackedScene" uid="uid://cvf50cd2vbyrq" path="res://hud.tscn" id="4_4gin7"]
 
 [node name="RaceViewport" type="SubViewportContainer"]
